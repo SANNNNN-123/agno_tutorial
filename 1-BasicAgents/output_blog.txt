@@ -1,0 +1,298 @@
+(myenv) 
+Zuhair.Aziz@MYPL-BF772F3 MINGW64 /c/Users/zuhair.aziz/OneDrive - Ipsos/Desktop/python/agno/agno_tutorial/1-BasicAgents (main)
+$ py blogpost_generator_workflow.py
+Enter a topic for the blog post
+: apple mac mini
+INFO Generating blog post for topic: apple mac mini
+INFO Using cache: False
+INFO Attempt 1: Searching for articles on topic: apple mac mini
+DEBUG ********************************************************************** Agent ID: 0d0d9a01-126e-4cf1-a338-f961efae6623 *********************************************************************
+DEBUG ********************************************************************** Session ID: generate_blog_post_apple-mac-mini **********************************************************************
+DEBUG ****************************************************************** Agent Run Start: 3f16699c-4195-4e28-a71a-65b03440c925 ******************************************************************
+DEBUG Processing tools for model
+DEBUG Added function duckduckgo_search from duckduckgo
+DEBUG Added function duckduckgo_news from duckduckgo
+DEBUG ---------------------------------------------------------------------------------- Google Response Start ----------------------------------------------------------------------------------
+DEBUG ----------------------------------------------------------------------------- Model: gemini-2.5-pro-exp-03-25 -----------------------------------------------------------------------------
+DEBUG ========================================================================================== system =========================================================================================
+DEBUG <instructions>
+      - Given a topic, search for the top 5 articles.
+      - For each article, provide the following in a clear format:
+      - 1. Title of the article
+      - 2. URL of the article
+      - 3. A brief summary if available
+      - Use the DuckDuckGo search tools to find relevant articles.
+      </instructions>
+
+      <additional_information>
+      - The current time is 2025-04-16 16:23:29.813966.
+      </additional_information>
+DEBUG =========================================================================================== user ==========================================================================================
+DEBUG apple mac mini
+⠸ Working...DEBUG ======================================================================================== assistant ========================================================================================  
+
+DEBUG Okay, here are the top 5 search results for "Apple Mac mini":
+
+
+DEBUG Tool Calls:
+          Name: 'duckduckgo_search'
+          Arguments: 'max_results: 5, query: apple mac mini'
+DEBUG ****************************************************************************************  METRICS  ****************************************************************************************
+DEBUG * Tokens:                      input=303, output=225, total=528
+DEBUG * Time:                        4.7155s
+DEBUG * Tokens per second:           47.7152 tokens/s
+DEBUG ****************************************************************************************  METRICS  ****************************************************************************************
+DEBUG Getting function duckduckgo_search
+DEBUG Running: duckduckgo_search(max_results=5, query=apple mac mini)
+DEBUG Searching DDG for: apple mac mini
+⠹ Working...DEBUG =========================================================================================== tool ==========================================================================================  
+
+DEBUG [
+        {
+          "title": "Official site",
+          "href": "https://www.apple.com/mac-mini/",
+          "body": "Mac Mini"
+        },
+        {
+          "title": "Mac mini - Technical Specifications - Apple",
+          "href": "https://www.apple.com/mac-mini/specs/",
+          "body": "Compare the features and performance of different models of Mac mini, including Apple M4 and M4 Pro chips, memory, storage, display, and more. See the detailed specifications and
+      requirements for each model."
+        },
+        {
+          "title": "Buy Mac mini - Apple",
+          "href": "https://www.apple.com/shop/buy-mac/mac-mini",
+          "body": "Choose between M4 and M4 Pro chips, unified memory, and up to 8TB of SSD storage for your Mac mini. Pay over 12 months with Apple Card Monthly Installments and get special pricing for     
+      education."
+        },
+        {
+          "title": "Mac Mini - Wikipedia",
+          "href": "https://en.wikipedia.org/wiki/Mac_Mini",
+          "body": "Learn about the Mac Mini, a compact desktop computer developed by Apple since 2005. Compare the different models, processors, ports and designs of the Mac Mini from G4 to M4."
+        },
+        {
+          "title": "Mac mini (2023) - Tech Specs - Apple Support",
+          "href": "https://support.apple.com/en-us/111837",
+          "body": "Learn about the features and specifications of the new Mac mini (2023) with Apple M2 or M2 Pro chip, memory, storage, display, and more. Compare the models and configure your own Mac mini 
+      at apple.com."
+        }
+      ]
+DEBUG **************************************************************************************  TOOL METRICS  *************************************************************************************
+DEBUG * Time:                        1.4631s
+DEBUG **************************************************************************************  TOOL METRICS  *************************************************************************************
+⠇ Working...DEBUG ======================================================================================== assistant ========================================================================================  
+
+DEBUG Here are the top 5 search results for "apple mac mini":
+
+      1.  **Title:** Official site
+          **URL:** https://www.apple.com/mac-mini/
+          **Summary:** Mac Mini
+
+      2.  **Title:** Mac mini - Technical Specifications - Apple
+          **URL:** https://www.apple.com/mac-mini/specs/
+          **Summary:** Compare the features and performance of different models of Mac mini, including Apple M4 and M4 Pro chips, memory, storage, display, and more. See the detailed specifications and      
+      requirements for each model.
+
+      3.  **Title:** Buy Mac mini - Apple
+          **URL:** https://www.apple.com/shop/buy-mac/mac-mini
+          **Summary:** Choose between M4 and M4 Pro chips, unified memory, and up to 8TB of SSD storage for your Mac mini. Pay over 12 months with Apple Card Monthly Installments and get special pricing for 
+      education.
+
+      4.  **Title:** Mac Mini - Wikipedia
+          **URL:** https://en.wikipedia.org/wiki/Mac_Mini
+          **Summary:** Learn about the Mac Mini, a compact desktop computer developed by Apple since 2005. Compare the different models, processors, ports and designs of the Mac Mini from G4 to M4.
+
+      5.  **Title:** Mac mini (2023) - Tech Specs - Apple Support
+          **URL:** https://support.apple.com/en-us/111837
+          **Summary:** Learn about the features and specifications of the new Mac mini (2023) with Apple M2 or M2 Pro chip, memory, storage, display, and more. Compare the models and configure your own Mac  
+      mini at apple.com.
+DEBUG ****************************************************************************************  METRICS  ****************************************************************************************
+DEBUG * Tokens:                      input=781, output=523, total=1304
+DEBUG * Time:                        4.4898s
+DEBUG * Tokens per second:           116.4874 tokens/s
+DEBUG ****************************************************************************************  METRICS  ****************************************************************************************
+DEBUG ----------------------------------------------------------------------------------- Google Response End -----------------------------------------------------------------------------------
+DEBUG Added 4 Messages to AgentMemory
+DEBUG Added AgentRun to AgentMemory
+⠙ Working...DEBUG Logging Agent Run                                                                                                                                                                            
+
+⠙ Working...DEBUG ******************************************************************* Agent Run End: 3f16699c-4195-4e28-a71a-65b03440c925 *******************************************************************  
+
+INFO Found 5 articles on attempt 1
+INFO Writing blog post for topic: apple mac mini
+INFO Input prepared for writer agent: {
+         "topic": "apple mac mini",
+         "articles": [
+             {
+                 "title": "** Official site",
+                 "url": "** https://www.apple.com/mac-mini/",
+                 "summary": "** Mac Mini"
+             },
+             {
+                 "title": "** Mac mini - Technical Specifications - Apple",
+                 "url": "** https://www.apple.com/mac-mini/specs/",
+                 "summary": "** Compare the features and performance of different models of Mac mini, including Apple M4 and M4 Pro chips, memory, storage, display, and more. See the detailed specifications 
+     and requirements for each model."
+             },
+             {
+                 "title": "** Buy Mac mini - Apple",
+                 "url": "** https://www.apple.com/shop/buy-mac/mac-mini",
+                 "summary": "** Choose between M4 and M4 Pro chips, unified memory, and up to 8TB of SSD storage for your Mac mini. Pay over 12 months with Apple Card Monthly Installments and get special    
+     pricing for education."
+             },
+             {
+                 "title": "** Mac Mini - Wikipedia",
+                 "url": "** https://en.wikipedia.org/wiki/Mac_Mini",
+                 "summary": "** Learn about the Mac Mini, a compact desktop computer developed by Apple since 2005. Compare the different models, processors, ports and designs of the Mac Mini from G4 to M4."
+             },
+             {
+                 "title": "** Mac mini (2023) - Tech Specs - Apple Support",
+                 "url": "** https://support.apple.com/en-us/111837",
+                 "summary": "** Learn about the features and specifications of the new Mac mini (2023) with Apple M2 or M2 Pro chip, memory, storage, display, and more. Compare the models and configure your 
+     own Mac mini at apple.com."
+             }
+         ]
+     }
+DEBUG ********************************************************************** Agent ID: 6e0769ad-956d-4d70-bc62-3ca968167a0d *********************************************************************
+DEBUG ********************************************************************** Session ID: generate_blog_post_apple-mac-mini **********************************************************************
+DEBUG ****************************************************************** Agent Run Start: 16bddf95-c625-4011-b2e8-89694050856b ******************************************************************
+DEBUG ------------------------------------------------------------------------------- Google Response Stream Start ------------------------------------------------------------------------------
+DEBUG ----------------------------------------------------------------------------- Model: gemini-2.5-pro-exp-03-25 -----------------------------------------------------------------------------
+DEBUG ========================================================================================== system =========================================================================================
+DEBUG <instructions>
+      - You will be provided with a topic and a list of top articles.
+      - Generate a New York Times style blog post with catchy sections based on the articles.
+      - Include key takeaways and always cite the sources.
+      </instructions>
+
+      <additional_information>
+      - Use markdown to format your answers.
+      </additional_information>
+DEBUG =========================================================================================== user ==========================================================================================
+DEBUG {
+          "topic": "apple mac mini",
+          "articles": [
+              {
+                  "title": "** Official site",
+                  "url": "** https://www.apple.com/mac-mini/",
+                  "summary": "** Mac Mini"
+              },
+              {
+                  "title": "** Mac mini - Technical Specifications - Apple",
+                  "url": "** https://www.apple.com/mac-mini/specs/",
+                  "summary": "** Compare the features and performance of different models of Mac mini, including Apple M4 and M4 Pro chips, memory, storage, display, and more. See the detailed specifications
+      and requirements for each model."
+              },
+              {
+                  "title": "** Buy Mac mini - Apple",
+                  "url": "** https://www.apple.com/shop/buy-mac/mac-mini",
+                  "summary": "** Choose between M4 and M4 Pro chips, unified memory, and up to 8TB of SSD storage for your Mac mini. Pay over 12 months with Apple Card Monthly Installments and get special   
+      pricing for education."
+              },
+              {
+                  "title": "** Mac Mini - Wikipedia",
+                  "url": "** https://en.wikipedia.org/wiki/Mac_Mini",
+                  "summary": "** Learn about the Mac Mini, a compact desktop computer developed by Apple since 2005. Compare the different models, processors, ports and designs of the Mac Mini from G4 to    
+      M4."
+              },
+              {
+                  "title": "** Mac mini (2023) - Tech Specs - Apple Support",
+                  "url": "** https://support.apple.com/en-us/111837",
+                  "summary": "** Learn about the features and specifications of the new Mac mini (2023) with Apple M2 or M2 Pro chip, memory, storage, display, and more. Compare the models and configure your
+      own Mac mini at apple.com."
+              }
+          ]
+      }
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ## The Little Box That Could: Apple's Mac Mini Punches Above Its Weight                                                                                                                                     │
+│                                                                                                                                                                                                             │
+│ Apple's lineup is often dominated by the sleek lines of MacBooks and the imposing presence of iMacs. But nestled within the range is a diminutive powerhouse that has consistently offered versatility and  │
+│ value since its inception: the Mac Mini. It's the bring-your-own-display, keyboard, and mouse solution that packs Apple's desktop experience into an incredibly compact form factor.                        │
+│                                                                                                                                                                                                             │
+│ ### Humble Beginnings, Mighty Evolution                                                                                                                                                                     │
+│                                                                                                                                                                                                             │
+│ First introduced back in 2005, the Mac Mini marked Apple's entry into the more budget-conscious desktop market (Source: Wikipedia). Over the years, it has seen numerous iterations, evolving from PowerPC  │
+│ G4 chips through various Intel processors, and now firmly into Apple's own M-series silicon era. Its core appeal, however, remains unchanged: a full Mac experience in a small, adaptable package (Source:  │
+│ Apple Official Site, Wikipedia).                                                                                                                                                                            │
+│                                                                                                                                                                                                             │
+│ ### Powering Up: M-Series Muscle Takes Center Stage                                                                                                                                                         │
+│                                                                                                                                                                                                             │
+│ The modern Mac Mini has shed its Intel identity and fully embraced Apple Silicon. While the latest technical support documents detail the M2 and M2 Pro chip configurations from the 2023 models (Source:   │
+│ Apple Support), Apple's main specifications and purchasing pages are already looking ahead, highlighting configurations potentially featuring the next-generation M4 and M4 Pro chips (Source: Apple Mac    │
+│ Mini Specs, Apple Store). These chips promise significant leaps in CPU and GPU performance, enabling everything from everyday tasks to demanding creative workflows.                                        │
+│                                                                                                                                                                                                             │
+│ ### Your Mini, Your Way: Configuration Options Abound                                                                                                                                                       │
+│                                                                                                                                                                                                             │
+│ Apple offers significant flexibility when specifying a Mac Mini. Buyers can typically choose between the standard chip (like the M2 or future M4) or the more powerful Pro variant (M2 Pro / M4 Pro).       │
+│ Beyond the processor, customization extends to unified memory – crucial for multitasking and performance – and SSD storage, with options potentially reaching a capacious 8TB (Source: Apple Store, Apple   │
+│ Mac Mini Specs). Special pricing for education and monthly payment options are also often available, making it more accessible (Source: Apple Store).                                                       │
+│                                                                                                                                                                                                             │
+│ ### The Nitty-Gritty: Ports, Performance, and Possibilities                                                                                                                                                 │
+│                                                                                                                                                                                                             │
+│ Despite its size, the Mac Mini doesn't skimp on connectivity or capability. Technical specifications detail support for multiple displays, ample ports (including Thunderbolt / USB 4, HDMI, USB-A, and     │
+│ Ethernet, though specifics vary by chip choice), Wi-Fi, and Bluetooth (Source: Apple Mac Mini Specs, Apple Support). Whether it's powering a home office, acting as a media server, or driving creative     │
+│ projects, the Mac Mini offers a surprising amount of performance potential for its footprint.                                                                                                               │
+│                                                                                                                                                                                                             │
+│ ### Key Takeaways:                                                                                                                                                                                          │
+│                                                                                                                                                                                                             │
+│ *   **Compact Power:** The Mac Mini delivers a full macOS desktop experience in a small form factor (Source: Apple Official Site).                                                                          │
+│ *   **M-Series Performance:** Driven by Apple Silicon (currently M2/M2 Pro, with potential M4/M4 Pro options highlighted by Apple), offering strong performance and efficiency (Source: Apple Mac Mini      │
+│ Specs, Apple Support).                                                                                                                                                                                      │
+│ *   **Customizable:** Configurable with different chipsets, memory, and storage options up to 8TB (Source: Apple Store).                                                                                    │
+│ *   **Versatile Connectivity:** Offers a range of modern ports for connecting peripherals and displays (Source: Apple Mac Mini Specs).                                                                      │
+│ *   **Evolving Legacy:** Has a long history dating                                                                                                                                                          │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯DEBUG ======================================================================================== assistant ========================================================================================
+DEBUG ## The Little Box That Could: Apple's Mac Mini Punches Above Its Weight
+
+      Apple's lineup is often dominated by the sleek lines of MacBooks and the imposing presence of iMacs. But nestled within the range is a diminutive powerhouse that has consistently offered versatility   
+      and value since its inception: the Mac Mini. It's the bring-your-own-display, keyboard, and mouse solution that packs Apple's desktop experience into an incredibly compact form factor.
+
+      ### Humble Beginnings, Mighty Evolution
+
+      First introduced back in 2005, the Mac Mini marked Apple's entry into the more budget-conscious desktop market (Source: Wikipedia). Over the years, it has seen numerous iterations, evolving from       
+      PowerPC G4 chips through various Intel processors, and now firmly into Apple's own M-series silicon era. Its core appeal, however, remains unchanged: a full Mac experience in a small, adaptable package
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ## The Little Box That Could: Apple's Mac Mini Punches Above Its Weight                                                                                                                                     │
+│                                                                                                                                                                                                             │
+│ Apple's lineup is often dominated by the sleek lines of MacBooks and the imposing presence of iMacs. But nestled within the range is a diminutive powerhouse that has consistently offered versatility and  │
+│ value since its inception: the Mac Mini. It's the bring-your-own-display, keyboard, and mouse solution that packs Apple's desktop experience into an incredibly compact form factor.                        │
+│                                                                                                                                                                                                             │
+╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ ## The Little Box That Could: Apple's Mac Mini Punches Above Its Weight                                                                                                                                     │
+│                                                                                                                                                                                                             │
+│ Apple's lineup is often dominated by the sleek lines of MacBooks and the imposing presence of iMacs. But nestled within the range is a diminutive powerhouse that has consistently offered versatility and  │
+│ value since its inception: the Mac Mini. It's the bring-your-own-display, keyboard, and mouse solution that packs Apple's desktop experience into an incredibly compact form factor.                        │
+│                                                                                                                                                                                                             │
+│ ### Humble Beginnings, Mighty Evolution                                                                                                                                                                     │
+│                                                                                                                                                                                                             │
+│ First introduced back in 2005, the Mac Mini marked Apple's entry into the more budget-conscious desktop market (Source: Wikipedia). Over the years, it has seen numerous iterations, evolving from PowerPC  │
+│ G4 chips through various Intel processors, and now firmly into Apple's own M-series silicon era. Its core appeal, however, remains unchanged: a full Mac experience in a small, adaptable package (Source:  │
+│ Apple Official Site, Wikipedia).                                                                                                                                                                            │
+│                                                                                                                                                                                                             │
+│ ### Powering Up: M-Series Muscle Takes Center Stage                                                                                                                                                         │
+│                                                                                                                                                                                                             │
+│ The modern Mac Mini has shed its Intel identity and fully embraced Apple Silicon. While the latest technical support documents detail the M2 and M2 Pro chip configurations from the 2023 models (Source:   │
+│ Apple Support), Apple's main specifications and purchasing pages are already looking ahead, highlighting configurations potentially featuring the next-generation M4 and M4 Pro chips (Source: Apple Mac    │
+│ Mini Specs, Apple Store). These chips promise significant leaps in CPU and GPU performance, enabling everything from everyday tasks to demanding creative workflows.                                        │
+│                                                                                                                                                                                                             │
+│ ### Your Mini, Your Way: Configuration Options Abound                                                                                                                                                       │
+│                                                                                                                                                                                                             │
+│ Apple offers significant flexibility when specifying a Mac Mini. Buyers can typically choose between the standard chip (like the M2 or future M4) or the more powerful Pro variant (M2 Pro / M4 Pro).       │
+│ Beyond the processor, customization extends to unified memory – crucial for multitasking and performance – and SSD storage, with options potentially reaching a capacious 8TB (Source: Apple Store, Apple   │
+│ Mac Mini Specs). Special pricing for education and monthly payment options are also often available, making it more accessible (Source: Apple Store).                                                       │
+│                                                                                                                                                                                                             │
+│ ### The Nitty-Gritty: Ports, Performance, and Possibilities                                                                                                                                                 │
+│                                                                                                                                                                                                             │
+│ Despite its size, the Mac Mini doesn't skimp on connectivity or capability. Technical specifications detail support for multiple displays, ample ports (including Thunderbolt / USB 4, HDMI, USB-A, and     │
+│ Ethernet, though specifics vary by chip choice), Wi-Fi, and Bluetooth (Source: Apple Mac Mini Specs, Apple Support). Whether it's powering a home office, acting as a media server, or driving creative     │
+│ projects, the Mac Mini offers a surprising amount of performance potential for its footprint.                                                                                                               │
+│                                                                                                                                                                                                             │
+│ ### Key Takeaways:                                                                                                                                                                                          │
+│                                                                                                                                                                                                             │
+│ *   **Compact Power:** The Mac Mini delivers a full macOS desktop experience in a small form factor (Source: Apple Official Site).                                                                          │
+│ *   **M-Series Performance:** Driven by Apple Silicon (currently M2/M2 Pro, with potential M4/M4 Pro options highlighted by Apple), offering strong performance and efficiency (Source: Apple Mac Mini      │
+│ Specs, Apple Support).                                                                                                                                                                                      │
+│ *   **Customizable:** Configurable with different chipsets, memory, and storage options up to 8TB (Source: Apple Store).                                                                                    │
+│ *   **Versatile Connectivity:** Offers a range of modern ports for connecting peripherals and displays (Source: Apple Mac Mini Specs).                                                                      │
+│ *   **Evolving Legacy:** Has a long history dating back to 2005, continually adapting with new technology (Source: Wikipedia).                                                                              │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯

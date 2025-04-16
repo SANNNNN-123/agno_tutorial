@@ -5,6 +5,7 @@ from agno.agent import Agent
 from agno.models.google import Gemini
 from agno.tools.duckduckgo import DuckDuckGoTools
 from agno.utils.log import logger
+from agno.playground import Playground, serve_playground_app
 from rich.prompt import Prompt
 from agno.storage.workflow.sqlite import SqliteWorkflowStorage
 from agno.utils.pprint import pprint_run_response
@@ -166,26 +167,44 @@ class BlogPostGenerator(Workflow):
         
         self._add_blog_post_to_cache(topic, self.writer.run_response.content)
         
-        
+
+generator_blog_post = BlogPostGenerator(
+    name='Blog Post Generator',
+    workflow_id=f'generate_blog_post', #use workflow_id
+    storage=SqliteWorkflowStorage(
+        table_name='generator_blog_post_workflows',
+        db_file='/storage/workflows.db',
+    )
+)
+
+app = Playground(
+    workflows=[
+        generator_blog_post
+    ]   
+).get_app()
+
+   
         
 if __name__ == "__main__":
     
+    serve_playground_app('blogpost_generator_workflow_playground:app', reload=True)
     
-    # Getting the topic from the user
-    topic = Prompt.ask("[bold]Enter a topic for the blog post[/bold]\n")
+    print("Blog Post Generator Playground")
+    # # Getting the topic from the user
+    # topic = Prompt.ask("[bold]Enter a topic for the blog post[/bold]\n")
     
-    url_safe_topic = topic.lower().replace(" ", "-")
+    # url_safe_topic = topic.lower().replace(" ", "-")
     
-    generate_blog_post = BlogPostGenerator(
-        session_id=f'generate_blog_post_{url_safe_topic}',
-        storage=SqliteWorkflowStorage(
-            table_name='generator_blog_post_workflows',
-            db_file='/storage/workflows.db',
+    # generate_blog_post = BlogPostGenerator(
+    #     session_id=f'generate_blog_post_{url_safe_topic}',
+    #     storage=SqliteWorkflowStorage(
+    #         table_name='generator_blog_post_workflows',
+    #         db_file='/storage/workflows.db',
             
-        ),
-    )
+    #     ),
+    # )
     
-    response = generate_blog_post.run(topic=topic, use_cache=False)
+    # response = generate_blog_post.run(topic=topic, use_cache=False)
     
-    pprint_run_response(response,markdown=False)
+    # pprint_run_response(response,markdown=False)
 
